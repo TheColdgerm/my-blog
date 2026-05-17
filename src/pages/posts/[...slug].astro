@@ -25,7 +25,7 @@ import {
 	randomPostsConfig,
 	relatedPostsConfig,
 	shareConfig,
-} from "src/config";
+} from "@/config";
 
 import Image from "../../components/atoms/Image/Image.astro";
 import Encryptor from "../../components/features/auth/Encryptor.astro";
@@ -100,6 +100,9 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content, headings } = await render(entry);
 const { remarkPluginFrontmatter } = await render(entry);
+
+// 强制使用文件名作为最终 fallback title
+const displayTitle = entry.data.title || removeFileExtension(entry.id).replace(/^.*[/\\]/, "");
 
 // 获取相关文章
 const relatedPosts = relatedPostsConfig.enable
@@ -189,8 +192,8 @@ const isEncrypted = !!(entry.data.encrypted && entry.data.password);
 const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "BlogPosting",
-	headline: entry.data.title,
-	description: entry.data.description || entry.data.title,
+	headline: displayTitle,
+	description: entry.data.description || displayTitle,
 	keywords: entry.data.tags,
 	author: {
 		"@type": "Person",
@@ -207,7 +210,7 @@ const jsonLd = {
 
 <MainGridLayout
 	banner={entry.data.image}
-	title={entry.data.title}
+	title={displayTitle}
 	description={entry.data.description}
 	lang={entry.data.lang}
 	setOGTypeArticle={true}
@@ -265,7 +268,7 @@ const jsonLd = {
                     md:before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
                     before:absolute before:top-[0.75rem] before:left-[-1.125rem]"
 				>
-					{entry.data.title}
+					{displayTitle}
 				</div>
 			</div>
 
@@ -328,7 +331,7 @@ const jsonLd = {
 				shareConfig.enable && (
 					<ShareCard
 						class:list={[{ "encrypted-hidden": isEncrypted }]}
-						title={entry.data.title}
+						title={displayTitle}
 						author={entry.data.author}
 						description={entry.data.description}
 						pubDate={formatDateToYYYYMMDD(entry.data.published)}
@@ -350,7 +353,7 @@ const jsonLd = {
 						]}
 					>
 						<License
-							title={entry.data.title}
+							title={displayTitle}
 							id={entry.id}
 							pubDate={entry.data.published}
 							author={entry.data.author}

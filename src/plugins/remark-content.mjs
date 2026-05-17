@@ -2,13 +2,27 @@ import getReadingTime from "reading-time";
 import { visit } from "unist-util-visit";
 
 export function remarkContent() {
-	return (tree, { data }) => {
+	return (tree, file) => {
+		const data = file.data;
+
 		// --- 安全性检查：确保 data.astro 存在 ---
 		if (!data.astro) {
 			data.astro = {};
 		}
 		if (!data.astro.frontmatter) {
 			data.astro.frontmatter = {};
+		}
+
+		// --- 如果 frontmatter 中没有 title，用文件名当作 title ---
+		// 不使用第一个一级标题，强制使用文件名
+		if (!data.astro.frontmatter.title) {
+			const filePath = file.path || "";
+			const basename = filePath
+				.replace(/^.*[\\/]/, "") // 去掉目录路径
+				.replace(/\.(md|mdx)$/i, ""); // 去掉扩展名
+			if (basename) {
+				data.astro.frontmatter.title = basename;
+			}
 		}
 
 		let fullText = ""; // 用于计算字数（包含全文）

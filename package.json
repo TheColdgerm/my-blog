@@ -22,7 +22,8 @@
 		"format": "prettier --write ./src",
 		"lint": "eslint ./src --fix",
 		"preinstall": "npx only-allow pnpm",
-		"compress-fonts": "node scripts/compress-fonts.js"
+		"compress-fonts": "node scripts/compress-fonts.js",
+		"obsidian-migrate": "node scripts/obsidian-migrate.mjs"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.9",

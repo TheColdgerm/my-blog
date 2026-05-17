@@ -25,11 +25,16 @@ import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.m
 import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs";
 import { rehypeImageWidth } from "./src/plugins/rehype-image-width.mjs";
 import { rehypeMermaid } from "./src/plugins/rehype-mermaid.mjs";
+import { rehypeObsidianWikilink } from "./src/plugins/rehype-obsidian-wikilink.mjs";
+import { rehypeStripInvisibleChars } from "./src/plugins/rehype-strip-invisible-chars.mjs";
 import { rehypeWrapTable } from "./src/plugins/rehype-wrap-table.mjs";
 import { remarkContent } from "./src/plugins/remark-content.mjs";
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkFixGithubAdmonitions } from "./src/plugins/remark-fix-github-admonitions.js";
 import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
+import { remarkObsidianComment } from "./src/plugins/remark-obsidian-comment.mjs";
+import { remarkObsidianWikilink } from "./src/plugins/remark-obsidian-wikilink.mjs";
+import { remarkStripInvisibleChars } from "./src/plugins/remark-strip-invisible-chars.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -124,6 +129,10 @@ export default defineConfig({
 	],
 	markdown: {
 		remarkPlugins: [
+			// 预处理：先清理不可见字符，再处理 Obsidian 语法
+			remarkStripInvisibleChars, // 移除零宽空格等不可见字符（防止 KaTeX 刷屏）
+			remarkObsidianComment, // 移除 %% 注释
+			remarkObsidianWikilink, // 转换 [[双链]] 为 Markdown 链接
 			remarkMath,
 			remarkContent,
 			remarkFixGithubAdmonitions,
@@ -133,7 +142,18 @@ export default defineConfig({
 			remarkMermaid,
 		],
 		rehypePlugins: [
-			rehypeKatex,
+			rehypeStripInvisibleChars, // 在 KaTeX 之前清理不可见字符
+			[
+				rehypeKatex,
+				{
+					// 兼容 Obsidian 中 $中文术语$ 的用法。
+					// 在数学笔记中常见 $定义域$、$基本不定积分$ 等中文文本包裹在 $ 内。
+					// strict: false 禁止 KaTeX 对这些"非标准 LaTeX 输入"发出警告
+					strict: false,
+					// throwOnError: false 让 KaTeX 渲染失败时显示原始文本而不是抛出异常
+					throwOnError: false,
+				},
+			],
 			[
 				rehypeExternalLinks,
 				{
@@ -177,6 +197,7 @@ export default defineConfig({
 				},
 			],
 			rehypeImageWidth,
+			rehypeObsidianWikilink,
 		],
 	},
 	vite: {
