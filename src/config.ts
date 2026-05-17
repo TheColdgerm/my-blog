@@ -1037,7 +1037,7 @@ export const announcementConfig: AnnouncementConfig = {
 // 音乐播放器配置 (musicPlayerConfig)
 // ============================================================
 export const musicPlayerConfig: MusicPlayerConfig = {
-	enable: true,
+	enable: false,
 	// 音乐播放器总开关
 	// false = 完全禁用音乐播放器
 
