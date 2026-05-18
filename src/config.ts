@@ -447,7 +447,7 @@ export const siteConfig: SiteConfig = {
 		desktopSidebar: true,
 		// 电脑端是否在右侧边栏显示目录
 
-		floating: true,
+		floating: false,
 		// 是否显示悬浮的目录按钮（固定在页面右侧的浮动按钮）
 		// 点击可展开快速导航
 
@@ -1197,7 +1197,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 	// 决定哪个组件在哪个侧边栏显示，以及显示的先后顺序
 	// ============================================================
 	components: {
-		left: ["profile", "announcement", "tags", "card-toc"],
+		left: ["profile", "announcement", "tags"],
 		// 左侧边栏显示的组件列表（按数组顺序从上到下排列）
 
 		right: ["site-stats", "calendar", "categories", "music-sidebar"],
