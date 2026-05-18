@@ -4,7 +4,7 @@ published: 2025-12-01
 draft: false
 description: ""
 tags: []
-category: ""
+category: "Linux"
 ---
 
 # 文件目录

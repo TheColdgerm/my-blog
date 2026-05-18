@@ -4,7 +4,7 @@ published: 2025-12-05
 draft: false
 description: ""
 tags: []
-category: ""
+category: "Linux"
 ---
 
 # ls 列出命令
