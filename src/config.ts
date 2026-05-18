@@ -447,7 +447,7 @@ export const siteConfig: SiteConfig = {
 		desktopSidebar: true,
 		// 电脑端是否在右侧边栏显示目录
 
-		floating: false,
+		floating: true,
 		// 是否显示悬浮的目录按钮（固定在页面右侧的浮动按钮）
 		// 点击可展开快速导航
 
