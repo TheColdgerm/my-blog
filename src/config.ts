@@ -1197,7 +1197,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 	// 决定哪个组件在哪个侧边栏显示，以及显示的先后顺序
 	// ============================================================
 	components: {
-		left: ["profile", "announcement", "tags"],
+		left: ["profile", "announcement", "tags", "card-toc"],
 		// 左侧边栏显示的组件列表（按数组顺序从上到下排列）
 
 		right: ["site-stats", "calendar", "categories", "music-sidebar"],
