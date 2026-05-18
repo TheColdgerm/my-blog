@@ -120,8 +120,11 @@ function splitTextWithWikilinks(text) {
 			const displayText = alias || (heading ? `${pageName} > ${heading}` : pageName);
 			const slug = toSlug(pageName);
 			const headingFragment = heading ? `#${encodeFragment(heading)}` : "";
+			const linkProps = { href: `/posts/${slug}/${headingFragment}` };
+			// 有标题锚点时添加 data-no-swup，让浏览器原生处理锚点跳转
+			if (heading) linkProps["data-no-swup"] = true;
 			nodes.push(
-				h("a", { href: `/posts/${slug}/${headingFragment}` }, [
+				h("a", linkProps, [
 					{ type: "text", value: displayText },
 				]),
 			);
@@ -148,8 +151,11 @@ function splitTextWithWikilinks(text) {
 				const displayText = alias || (heading ? `${pageName} > ${heading}` : pageName);
 				const slug = toSlug(pageName);
 				const headingFragment = heading ? `#${encodeFragment(heading)}` : "";
+				const linkProps = { href: `/posts/${slug}/${headingFragment}` };
+				// 有标题锚点时添加 data-no-swup，让浏览器原生处理锚点跳转
+				if (heading) linkProps["data-no-swup"] = true;
 				nodes.push(
-					h("a", { href: `/posts/${slug}/${headingFragment}` }, [
+					h("a", linkProps, [
 						{ type: "text", value: displayText },
 					]),
 				);

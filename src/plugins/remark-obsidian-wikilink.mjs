@@ -142,12 +142,19 @@ function createNodesFromMatch(match) {
 	const displayText = alias || (heading ? `${pageName} > ${heading}` : pageName);
 	const slug = toSlug(pageName);
 	const headingFragment = heading ? `#${encodeFragment(heading)}` : "";
-	return {
+	const linkNode = {
 		type: "link",
 		url: `/posts/${slug}/${headingFragment}`,
 		title: null,
 		children: [{ type: "text", value: displayText }],
 	};
+	// 有标题锚点时添加 data-no-swup，让浏览器原生处理锚点跳转
+	if (heading) {
+		linkNode.data = {
+			hProperties: { "data-no-swup": true },
+		};
+	}
+	return linkNode;
 }
 
 /**
