@@ -139,7 +139,7 @@ function createNodesFromMatch(match) {
 	}
 
 	// 普通笔记链接（包括 ![[embed]] 也转为普通链接）
-	const displayText = alias || pageName;
+	const displayText = alias || (heading ? `${pageName} > ${heading}` : pageName);
 	const slug = toSlug(pageName);
 	const headingFragment = heading ? `#${encodeFragment(heading)}` : "";
 	return {

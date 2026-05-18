@@ -117,7 +117,7 @@ function splitTextWithWikilinks(text) {
 				pageName = target.substring(0, hashIndex);
 				heading = target.substring(hashIndex + 1);
 			}
-			const displayText = alias || pageName;
+			const displayText = alias || (heading ? `${pageName} > ${heading}` : pageName);
 			const slug = toSlug(pageName);
 			const headingFragment = heading ? `#${encodeFragment(heading)}` : "";
 			nodes.push(
@@ -145,7 +145,7 @@ function splitTextWithWikilinks(text) {
 				);
 			} else {
 				// [[页面名称]] → 笔记链接
-				const displayText = alias || pageName;
+				const displayText = alias || (heading ? `${pageName} > ${heading}` : pageName);
 				const slug = toSlug(pageName);
 				const headingFragment = heading ? `#${encodeFragment(heading)}` : "";
 				nodes.push(
