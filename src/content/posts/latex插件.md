@@ -1,7 +1,7 @@
 ---
 title: "Latex插件"
 published: 2025-09-30
-draft: false
+draft: true
 description: ""
 tags: []
 category: "编码"
