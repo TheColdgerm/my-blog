@@ -500,15 +500,15 @@ export const siteConfig: SiteConfig = {
 		asciiFont: {
 			// ASCII 英文字体配置
 			// 优先级最高的字体，用于英文和数字显示
-			fontFamily: "UbuntuMono-R-12",
+			fontFamily: "Ubuntu Medium",
 			// 字体名称（与 CSS 中的 font-family 对应）
 
-			fontWeight: "400",
+			fontWeight: "500",
 			// 字体粗细（font-weight 值）
 			// 400 = normal（常规）
 			// 700 = bold（粗体）
 
-			localFonts: ["UbuntuMono-R-12.ttf"],
+			localFonts: ["Ubuntu-M-7.ttf"],
 			// 本地字体文件名数组
 			// 字体文件放在 public/assets/font/ 目录下
 			// 构建时会基于这些文件进行子集化压缩

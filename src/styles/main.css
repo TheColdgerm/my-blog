@@ -26,21 +26,27 @@
   --breakpoint-xl: 1920px;
 }
 
-/* 导入 ZenMaruGothic-Medium 字体 */
+/* 导入 Ubuntu Medium 字体（ASCII / 英文字体） */
 @font-face {
-  font-family: "UbuntuMono-R-12";
-  src: url("/assets/font/UbuntuMono-R-12.ttf") format("truetype");
+  font-family: "Ubuntu Medium";
+  src: url("/assets/font/Ubuntu-M-7.ttf") format("truetype");
   font-weight: 500;
   font-display: swap;
 }
 
-/* 导入 萝莉体 第二版 字体 */
+/* 导入 鼎猎珠海体 字体（CJK / 中文字体）
+   size-adjust / ascent-override / descent-override 用于修正
+   中英文混合显示时的基线对齐和视觉大小差异 */
 @font-face {
   font-family: "鼎猎珠海体";
   src: url("/assets/font/dingliezhuhaifont.ttf") format("truetype");
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-display: swap;
+  size-adjust: 108%;
+  ascent-override: 82%;
+  descent-override: 18%;
+  line-gap-override: 0%;
 }
 
 /* 确保平滑滚动，并稳定滚动条宽度以避免布局左右抖动 */
@@ -48,6 +54,13 @@ html {
   scroll-behavior: smooth;
   /* 现代浏览器：为滚动条预留稳定空间 */
   scrollbar-gutter: stable;
+}
+
+/* 全局行高设置
+   CJK（中文）文本的推荐行高为 1.6-2.0，
+   此处设为 1.75 在紧凑和舒展之间取得平衡 */
+body {
+  line-height: 1.75;
 }
 
 /* 页面顶部渐变高光效果 */
