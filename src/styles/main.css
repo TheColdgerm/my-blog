@@ -26,12 +26,17 @@
   --breakpoint-xl: 1920px;
 }
 
-/* 导入 Ubuntu Medium 字体（ASCII / 英文字体） */
+/* 导入 Ubuntu Medium 字体（ASCII / 英文字体）
+   与 CJK 字体使用相同的 ascent/descent 度量，确保基线对齐 */
 @font-face {
   font-family: "Ubuntu Medium";
   src: url("/assets/font/Ubuntu-M-7.ttf") format("truetype");
   font-weight: 500;
   font-display: swap;
+  size-adjust: 100%;
+  ascent-override: 75%;
+  descent-override: 25%;
+  line-gap-override: 0%;
 }
 
 /* 导入 鼎猎珠海体 字体（CJK / 中文字体）
@@ -44,8 +49,8 @@
   font-weight: 500;
   font-display: swap;
   size-adjust: 108%;
-  ascent-override: 82%;
-  descent-override: 18%;
+  ascent-override: 75%;
+  descent-override: 25%;
   line-gap-override: 0%;
 }
 
@@ -54,13 +59,6 @@ html {
   scroll-behavior: smooth;
   /* 现代浏览器：为滚动条预留稳定空间 */
   scrollbar-gutter: stable;
-}
-
-/* 全局行高设置
-   CJK（中文）文本的推荐行高为 1.6-2.0，
-   此处设为 1.75 在紧凑和舒展之间取得平衡 */
-body {
-  line-height: 1.75;
 }
 
 /* 页面顶部渐变高光效果 */
