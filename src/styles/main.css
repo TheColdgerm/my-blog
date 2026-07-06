@@ -39,7 +39,7 @@
   line-gap-override: 0%;
 }
 
-/* 导入 鼎猎珠海体 字体（CJK / 中文字体）
+/* 导入 TaiWanQuanZiKuZhengKaiTi-2 字体（CJK / 中文字体）
    size-adjust / ascent-override / descent-override 用于修正
    中英文混合显示时的基线对齐和视觉大小差异 */
 @font-face {
