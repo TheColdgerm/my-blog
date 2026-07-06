@@ -315,10 +315,11 @@ export const siteConfig: SiteConfig = {
 			// 可以放多张实现轮播，也可以只放一张
 
 			mobile: [
-				"/assets/mobile-banner/1.webp",
-				"/assets/mobile-banner/2.webp",
-				"/assets/mobile-banner/3.webp",
-				"/assets/mobile-banner/4.webp",
+				"/assets/mobile-banner/5.jpg",
+				"/assets/mobile-banner/6.jpg",
+				"/assets/mobile-banner/7.jpg",
+				"/assets/mobile-banner/8.jpg",
+				"/assets/mobile-banner/9.jpg",
 			],
 			// 手机端横幅图片（一般 750x1334 左右比较合适）
 			// 手机端和电脑端可以分别使用不同的图片
@@ -499,7 +500,7 @@ export const siteConfig: SiteConfig = {
 		asciiFont: {
 			// ASCII 英文字体配置
 			// 优先级最高的字体，用于英文和数字显示
-			fontFamily: "ZenMaruGothic-Medium",
+			fontFamily: "UbuntuMono-R-12",
 			// 字体名称（与 CSS 中的 font-family 对应）
 
 			fontWeight: "400",
@@ -507,7 +508,7 @@ export const siteConfig: SiteConfig = {
 			// 400 = normal（常规）
 			// 700 = bold（粗体）
 
-			localFonts: ["ZenMaruGothic-Medium.ttf"],
+			localFonts: ["UbuntuMono-R-12.ttf"],
 			// 本地字体文件名数组
 			// 字体文件放在 public/assets/font/ 目录下
 			// 构建时会基于这些文件进行子集化压缩
@@ -520,14 +521,14 @@ export const siteConfig: SiteConfig = {
 		cjkFont: {
 			// 中日韩 (CJK) 字体配置
 			// 作为英文字体的回退字体，用于中文、日文、韩文显示
-			fontFamily: "萝莉体 第二版",
+			fontFamily: "鼎猎珠海体",
 			// 字体名称
 
 			fontWeight: "500",
 			// 字体粗细
 			// 500 = medium（中等）
 
-			localFonts: ["loli.ttf"],
+			localFonts: ["dingliezhuhaifont.ttf"],
 			// 本地字体文件路径
 
 			enableCompress: true,
