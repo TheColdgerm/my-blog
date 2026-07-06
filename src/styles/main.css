@@ -43,8 +43,8 @@
    size-adjust / ascent-override / descent-override 用于修正
    中英文混合显示时的基线对齐和视觉大小差异 */
 @font-face {
-  font-family: "鼎猎珠海体";
-  src: url("/assets/font/dingliezhuhaifont.ttf") format("truetype");
+  font-family: "TaiWanQuanZiKuZhengKaiTi-2";
+  src: url("/assets/font/TaiWanQuanZiKuZhengKaiTi-2.ttf") format("truetype");
   font-style: normal;
   font-weight: 500;
   font-display: swap;

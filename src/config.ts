@@ -521,14 +521,14 @@ export const siteConfig: SiteConfig = {
 		cjkFont: {
 			// 中日韩 (CJK) 字体配置
 			// 作为英文字体的回退字体，用于中文、日文、韩文显示
-			fontFamily: "鼎猎珠海体",
+			fontFamily: "TaiWanQuanZiKuZhengKaiTi-2",
 			// 字体名称
 
 			fontWeight: "500",
 			// 字体粗细
 			// 500 = medium（中等）
 
-			localFonts: ["dingliezhuhaifont.ttf"],
+			localFonts: ["TaiWanQuanZiKuZhengKaiTi-2.ttf"],
 			// 本地字体文件路径
 
 			enableCompress: true,
