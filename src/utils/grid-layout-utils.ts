@@ -168,7 +168,7 @@ export function calculateGridLayout(
 
 	const mainContentClass = `
 		transition-swup-fade overflow-hidden w-full
-		col-span-1 row-start-1 row-end-2
+		col-span-1 md:row-start-1 md:row-end-2
 		${tabletAnySidebar ? "md:col-start-2 md:col-end-3" : "md:col-start-1 md:col-end-2"}
 		${desktopShowSidebar ? desktopMainPos : "lg:col-span-1"}
 	`

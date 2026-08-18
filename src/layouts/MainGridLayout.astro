@@ -243,13 +243,15 @@ const defaultPostListLayout = siteConfig.postListLayout?.defaultMode || "list";
 	</div>
 
 	<style>
-		.right-sidebar-container {
-			align-self: start;
-			display: contents;
-		}
+		@media (min-width: 1280px) {
+			.right-sidebar-container {
+				align-self: start;
+				display: contents;
+			}
 
-		.right-sidebar-container #right-sidebar {
-			height: fit-content;
+			.right-sidebar-container #right-sidebar {
+				height: fit-content;
+			}
 		}
 	</style>
 
